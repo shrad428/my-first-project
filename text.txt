@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I’m Sorry Baby ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 550px;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      animation: fadeIn 1.8s ease;
+    }
+
+    h1 {
+      color: #e63946;
+      margin-bottom: 10px;
+    }
+
+    .heart {
+      font-size: 42px;
+      animation: pulse 1.5s infinite;
+    }
+
+    p {
+      font-size: 17.5px;
+      line-height: 1.7;
+      color: #444;
+      margin: 15px 0;
+    }
+
+    .name {
+      font-weight: bold;
+      color: #e63946;
+    }
+
+    .photos {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .photos img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 14px 32px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .talkBtn {
+      background: #ff6f91;
+    }
+
+    #response {
+      display: none;
+      font-weight: bold;
+      color: #e63946;
+      margin-top: 15px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>I’m Sorry</h1>
+
+    <p>
+      My love <span class="name">Baby (Nowa)</span>,
+    </p>
+
+    <p>
+      I know I hurt you, and I won’t make excuses for it.
+      I understand if you’re upset, distant, or unsure.
+    </p>
+
+    <p>
+      Please know that my heart — Chiku’s heart —
+      was never against you.
+      I never wanted to cause you pain.
+    </p>
+
+    <p>
+      What we have means everything to me —
+      the laughs, the memories, the quiet moments,
+      and even the hard ones we learn from.
+    </p>
+
+    <div class="photos">
+      <img src="photo1.jpg.HEIC" alt="Us">
+      <img src="photo2.jpg.HEIC" alt="Memories">
+      <img src="photo3.jpg.HEIC" alt="Always You">
+    </div>
+
+    <p>
+      I’m truly sorry for what I did.
+      I’m not asking you to forget —
+      I’m asking for a chance to make things right.
+    </p>
+
+    <p>
+      No matter how long it takes,
+      I’m here, choosing you,
+      and willing to do better.
+    </p>
+
+    <p>
+      With all my love,<br>
+      <strong>Chiku (Shraddha) 💕</strong>
+    </p>
+
+    <p id="response">
+      Thank you for reading this, Baby.
+      Whenever you’re ready, I’m here.
+    </p>
+
+    <button onclick="showLove()">
+      Please read this
+    </button>
+
+    <button class="talkBtn" onclick="talk()">
+      Can we talk?
+    </button>
+
+  </div>
+
+  <script>
+    function showLove() {
+      document.getElementById("response").style.display = "block";
+    }
+
+    function talk() {
+      window.location.href = "https://wa.me/";
+    }
+  </script>
+
+</body>
+</html>
