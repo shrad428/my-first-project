@@ -1,70 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For You, My Love</title>
+  <title>Just for You 🤍</title>
   <style>
     body {
-      background-color: #fff5f8;
+      background-color: #0b132b;
       font-family: Arial, sans-serif;
       text-align: center;
+      padding: 40px;
+      color: #ffffff;
+    }
+
+    .card {
+      background: #1c2541;
       padding: 30px;
-    }
-    h1 {
-      color: #c2185b;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #333;
+      border-radius: 16px;
       max-width: 700px;
       margin: auto;
+      transition: transform 0.3s;
     }
-    a {
-      display: inline-block;
-      margin: 15px;
-      padding: 10px 20px;
-      background-color: #c2185b;
+
+    h1 {
+      color: #ff7aa2;
+    }
+
+    button {
+      padding: 10px 24px;
+      margin-top: 20px;
+      background-color: #ff7aa2;
       color: white;
-      text-decoration: none;
+      border: none;
       border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
-    a:hover {
-      background-color: #a3154d;
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    #pinSection, #secret {
+      display: none;
+      margin-top: 20px;
+    }
+
+    /* SHAKE ANIMATION */
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    .shake {
+      animation: shake 0.4s;
     }
   </style>
 </head>
 
 <body>
 
-<h1>Mutu Mayalu 🤍</h1>
+<div class="card" id="card">
+  <h1>This is just for you 🤍</h1>
 
-<p>
-I know I’ve hurt you knowingly or unknowingly and I’m truly sorry.  
-That was never my intention, not even for a moment.
-</p>
+  <p>
+    If you're reading this, it means you stayed a little longer.  
+    It means curiosity or maybe care brought you here.
+  </p>
 
-<p>
-I loved you from the very start, and I still do  deeply, honestly, endlessly.  
-I don’t want anyone beside you. I don’t see a future where it isn’t you.
-</p>
+  <button onclick="openSecret()">Open secret message 🔒</button>
 
-<p>
-I don’t know how else to prove my sincerity, so I’m pouring my effort, my heart,
-and my time into this hoping you’ll feel what I feel.
-</p>
+  <div id="pinSection">
+    <input type="password" id="pin" placeholder="Enter PIN">
+    <br>
+    <button onclick="checkPin()">Unlock</button>
+  </div>
 
-<p>
-If you tell me once, I’ll leave everything behind without a second thought  
-just to have you in my life.
-</p>
+  <div id="secret">
+    <p>
+      I won’t repeat my apologies here.  
+      I just want to say something quietly —  
+      loving you was never a phase for me, it was necessity for me.
+    </p>
 
-<p>
-I love you more than words can ever hold.
-</p>
+    <p>
+      Even now I still think of you in small moments.  
+      Songs. Silences. Random smiles.  
+      You never really left my heart and you never will.
+    </p>
 
-<a href="memories.html">💞 Our Memories</a>
-<a href="secrets.html">🔒 Secret Messages</a>
-<a href="waiting.html">⏳ I’m Waiting</a>
+    <p>
+      Take all the time you need. I’m not going anywhere.  
+      If someday the whole world stands against you,  
+      look behind you — you will find me.
+    </p>
+
+    <p>
+      I love you more and most, mero baccha mutu mayalu ❤️😘
+    </p>
+
+    <p>— always,<br>Chiku 🤍</p>
+  </div>
+</div>
+
+<script>
+  function openSecret() {
+    document.getElementById("pinSection").style.display = "block";
+  }
+
+  function checkPin() {
+    const correctPin = "101";
+    const enteredPin = document.getElementById("pin").value;
+    const card = document.getElementById("card");
+
+    if (enteredPin === correctPin) {
+      document.getElementById("secret").style.display = "block";
+      document.getElementById("pinSection").style.display = "none";
+    } else {
+      card.classList.add("shake");
+      setTimeout(() => card.classList.remove("shake"), 400);
+    }
+  }
+</script>
 
 </body>
 </html>
