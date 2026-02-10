@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>For You, My Love 🤍</title>
 
   <style>
@@ -69,7 +69,7 @@
     .signature {
       text-align: center;
       font-weight: bold;
-      margin: 15px 0;
+      margin-bottom: 15px;
       color: #ff5fa2;
     }
 
@@ -88,13 +88,18 @@
       text-decoration: none;
       font-size: 14px;
     }
+
+    .reset {
+      margin-top: 20px;
+      background: #eee;
+      color: #666;
+      font-size: 14px;
+    }
   </style>
 </head>
 
 <body>
-
   <div class="card">
-
     <h1>💌 Open my letter?</h1>
 
     <div class="buttons">
@@ -103,43 +108,45 @@
     </div>
 
     <div id="letter">
-      <div class="signature">Mutu Mayalu 🤍</div>
+      <div class="signature">— Mutu Mayalu 🤍</div>
 
       <p>
-        I know I’ve hurt you multiple times knowingly or unknowingly and I’m ekdamai
-        guilty regretful and sorry for it. I know i can't go back in time and change
-        things but I have always tried my best to not mess things up. I never wanted
-        to hurt you in a slightest way. I have always tried my best to do things you
-        like but i keep on messing things up like a idiot.But trust me I always try my
-        best when it comes to you.
+        I know I've hurt you multiple times knowingly or unknowingly and I'm
+        extremely guilty, regretful and sorry for it. I know I can't go back in
+        time and change things but I have always tried my best to not mess
+        things up. I never wanted to hurt you in a slightest way. I have always
+        tried my best to do things you like but I keep on messing things up like
+        an idiot. But trust me I always try my best when it comes to you.
       </p>
 
       <p>
-        I have loved you from the very start from the day of christmas I have loved you 
-        no matter in what form sometimes as a friend sometimes as a bestfriend sometime
-        like my bf my husband sometime like my child but one thing i never stopped was
-        loving you. Kaile kai hamro jhagda parera ma risauda tww i would feel like
-       am abandoning my child my baby.
+        I have loved you from the very start, from the day of Christmas I have
+        loved you no matter in what form — sometimes as a friend, sometimes as a
+        best friend, sometimes like my boyfriend, sometimes like my husband,
+        sometimes like my child. But one thing that never stopped was loving
+        you. Kaile kai hamro jhagda parera ma risauda timi would feel like I am
+        abandoning my child, my baby.
       </p>
 
       <p>
-        If you tell me once, I’ll leave everything behind without a second thought
-        just to have you in my life. I will give you so much love you'd forget who
-        didn't loved you vanera. You are my baby and no matter if i would have kids
-        or not you will always be my first baby.
+        If you tell me once, I’ll leave everything behind without a second
+        thought just to have you in my life. I will give you so much love you’d
+        forget who didn’t love you earlier. You are my baby and no matter if I
+        would have kids or not, you will always be my first baby.
       </p>
 
       <p style="text-align:center; font-weight:bold;">
-        I love you more than words can ever hold and the word love was supposed to mean🤍
+        I love you more than words can ever hold 🤍
       </p>
 
       <div class="links">
-        <a href="memories.html">💖 Our Memories</a>
-        <a href="secrets.html">🔐 Secret Messages</a>
+        <a href="memories.html">💞 Our Memories</a>
+        <a href="secret.html">🔒 Secret Messages</a>
         <a href="waiting.html">⏳ I’m Waiting</a>
       </div>
     </div>
 
+    <button class="reset" onclick="resetLetter()">🔄 Start Over</button>
   </div>
 
   <script>
@@ -150,11 +157,10 @@
 
     let yesScale = 1;
 
-    // If letter already opened, skip Yes/No
+    // Restore state
     if (localStorage.getItem("letterOpened") === "true") {
       buttons.style.display = "none";
       letter.style.display = "block";
-      yesBtn.style.transform = "scale(1)";
     }
 
     noBtn.addEventListener("click", () => {
@@ -170,9 +176,12 @@
       localStorage.setItem("letterOpened", "true");
       buttons.style.display = "none";
       letter.style.display = "block";
-      yesBtn.style.transform = "scale(1)";
     });
-  </script>
 
+    function resetLetter() {
+      localStorage.removeItem("letterOpened");
+      location.reload();
+    }
+  </script>
 </body>
 </html>
