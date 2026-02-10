@@ -1,106 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>For You, My Love 🤍</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, My Love 🤍</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(120deg, #ffe4ec, #fff0f5);
-      font-family: "Arial", sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-    /* floating hearts */
-    body::before {
-      content: "❤ ❤ ❤ ❤ ❤ ❤ ❤";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      font-size: 80px;
-      opacity: 0.05;
-      animation: float 20s linear infinite;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffe6ef, #ffd1e6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    @keyframes float {
-      from { transform: translateY(0); }
-      to { transform: translateY(-200px); }
-    }
+/* LETTER CONTAINER */
+.letter {
+  width: 90%;
+  max-width: 600px;
+  background: #fff0f6;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(255,105,180,0.3);
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.8s ease;
+}
 
-    .card {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(15px);
-      padding: 45px;
-      border-radius: 30px;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 30px 60px rgba(255, 105, 180, 0.25);
-      animation: fadeIn 1.5s ease;
-      z-index: 1;
-    }
+/* CLOSED STATE */
+.closed .content {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(20px);
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* OPEN STATE */
+.open .content {
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    h1 {
-      color: #c2185b;
-      margin-bottom: 20px;
-    }
+.content {
+  transition: all 1s ease;
+}
 
-    p {
-      color: #555;
-      line-height: 1.8;
-      font-size: 16px;
-    }
+/* TITLE */
+h1 {
+  color: #e91e63;
+  margin-bottom: 20px;
+}
 
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+/* TEXT */
+p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 15px;
+}
 
-    a {
-      text-decoration: none;
-    }
+/* BUTTONS */
+.buttons {
+  margin-top: 25px;
+}
 
-    .btn {
-      background: linear-gradient(135deg, #ff5c8a, #ff85b3);
-      color: white;
-      padding: 12px 22px;
-      border-radius: 30px;
-      font-size: 15px;
-      box-shadow: 0 10px 20px rgba(255, 92, 138, 0.4);
-      transition: all 0.3s ease;
-    }
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px rgba(255, 92, 138, 0.6);
-    }
+.yes {
+  background: #ff5fa2;
+  color: white;
+}
 
-    .pulse {
-      animation: pulse 2s infinite;
-    }
+.yes:hover {
+  transform: scale(1.1);
+}
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,92,138,0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(255,92,138,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,92,138,0); }
-    }
-  </style>
+.no {
+  background: #ffd1e6;
+  margin-left: 15px;
+  position: relative;
+}
+
+/* RUN AWAY EFFECT */
+.no:hover {
+  position: absolute;
+  left: calc(50% + (Math.random() * 200px - 100px));
+  top: calc(50% + (Math.random() * 200px - 100px));
+}
+
+/* HEARTS */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  color: pink;
+  animation: float 6s infinite ease-in;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
+<div class="letter closed" id="letter">
+  <h1>💌 Open my letter?</h1>
+
+  <div class="buttons">
+    <button class="yes" onclick="openLetter()">Yes 💖</button>
+    <button class="no">No 🙈</button>
+  </div>
+
+  <div class="content">
     <h1>Mutu Mayalu 🤍</h1>
 
     <p>
@@ -127,16 +168,33 @@
       or not you will always be my first baby.
     </p>
 
-    <p>
-      I love you more than words can ever hold and more than it was meant to be exsited.
-    </p>
-
-    <div class="buttons">
-      <a href="memories.html" class="btn">💞 Our Memories</a>
-      <a href="secrets.html" class="btn pulse">🔒 Secret Messages</a>
-      <a href="waiting.html" class="btn">⏳ I’m Waiting</a>
-    </div>
+    <p><b>I love you more than words can ever hold and more than it was meant to be exsited🤍</b></p>
   </div>
+</div>
+
+<div class="hearts"></div>
+
+<script>
+function openLetter() {
+  document.getElementById("letter").classList.remove("closed");
+  document.getElementById("letter").classList.add("open");
+  createHearts();
+}
+
+function createHearts() {
+  const hearts = document.querySelector(".hearts");
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    hearts.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+}
+</script>
 
 </body>
 </html>
